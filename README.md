@@ -47,7 +47,7 @@ azure-devops-practice/
 
 ---
 
-## **📌 3️⃣ Despliegue de la Infraestructura**
+## Despliegue de la Infraestructura**
 
     ##Configurar Terraform y desplegar infraestructura en Azure**
 
