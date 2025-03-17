@@ -1,0 +1,9 @@
+- name: Desplegar aplicación en Kubernetes
+  hosts: localhost
+  vars:
+    app_name: "flask-app"
+    acr_url: "devopsacr63pv0.azurecr.io"
+    image_name: "flask-app"
+    image_tag: "casopractico2"
+  roles:
+    - kubernetes

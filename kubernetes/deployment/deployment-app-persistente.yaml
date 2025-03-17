@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-persistente
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-persistente
+  template:
+    metadata:
+      labels:
+        app: app-persistente
+    spec:
+      volumes:
+      - name: storage
+        persistentVolumeClaim:
+          claimName: app-persistente-pvc
+      containers:
+      - name: app-persistente
+        image: devopsacr63pv0.azurecr.io/app-persistente:latest
+        ports:
+        - containerPort: 5000
+        volumeMounts:
+        - mountPath: "/data"
+          name: storage

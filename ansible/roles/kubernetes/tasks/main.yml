@@ -1,0 +1,15 @@
+- name: Copiar plantilla de Deployment en Kubernetes
+  template:
+    src: deployment.yaml.j2
+    dest: /tmp/deployment.yaml
+
+- name: Copiar plantilla de Service en Kubernetes
+  template:
+    src: service.yaml.j2
+    dest: /tmp/service.yaml
+
+- name: Aplicar el Deployment en Kubernetes
+  command: kubectl apply -f /tmp/deployment.yaml
+
+- name: Aplicar el Service en Kubernetes
+  command: kubectl apply -f /tmp/service.yaml
