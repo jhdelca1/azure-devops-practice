@@ -42,7 +42,7 @@ azure-devops-practice/
 │   ├── main.tf
 │   ├── aks.tf
 │   ├── vm.tf
-│── README.md  ← 📌 Explicación detallada del proyecto
+│── README.md  ←  Explicación detallada del proyecto
 ```
 
 ---
