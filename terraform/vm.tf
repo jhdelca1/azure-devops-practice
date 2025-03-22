@@ -59,4 +59,3 @@ resource "azurerm_linux_virtual_machine" "vm" {
 
   depends_on = [azurerm_virtual_network.vnet]  # <--- Esto asegura que la red virtual se cree antes de la VM
 }
-
