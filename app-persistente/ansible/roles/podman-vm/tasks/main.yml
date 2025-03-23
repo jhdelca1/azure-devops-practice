@@ -1,0 +1,31 @@
+---
+- name: Instalar Podman
+  apt:
+    name: podman
+    state: present
+    update_cache: true
+
+- name: Iniciar sesión en ACR
+  containers.podman.podman_login:
+    registry: "{{ acr_url }}"
+    username: "{{ acr_username }}"
+    password: "{{ acr_password }}"
+
+- name: Descargar imagen desde ACR
+  containers.podman.podman_image:
+    name: "{{ acr_url }}/{{ imagen }}"
+
+- name: Eliminar contenedor existente si existe
+  containers.podman.podman_container:
+    name: app-vm
+    state: absent
+  ignore_errors: true
+
+- name: Ejecutar contenedor Podman
+  containers.podman.podman_container:
+    name: app-vm
+    image: "{{ acr_url }}/{{ imagen }}"
+    state: started
+    restart_policy: always
+    publish:
+      - "8081:80"
