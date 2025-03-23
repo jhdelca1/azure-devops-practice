@@ -1,0 +1,8 @@
+---
+- name: Despliegue de la app en VM con Podman
+  hosts: vm
+  become: true
+  vars_files:
+    - secrets.yml
+  roles:
+    - podman-vm
